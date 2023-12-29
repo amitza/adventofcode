@@ -12,26 +12,31 @@ def gear_ratios(mat: list[str]) -> list[int]:
                 k = j + 1
                 while k < m and mat[i][k].isdigit():
                     k += 1
-                print(f'{i}: {j} -> {k} [{mat[i][j:k]}]')
                 if i > 0 and j > 0 and mat[i - 1][j - 1] != '.':
                     parts.append(int(mat[i][j:k]))
-                    break
-                elif i > 0 and j < m - 1 and mat[i - 1][j + 1] != '.':
+                    print(f'{i}: {j} -> {k} [{mat[i][j:k]}]')
+                elif i > 0 and k < m - 1 and mat[i - 1][k] != '.':
                     parts.append(int(mat[i][j:k]))
-                    break
+                    print(f'{i}: {j} -> {k} [{mat[i][j:k]}]')
                 elif i < n - 1 and j > 0 and mat[i + 1][j - 1] != '.':
                     parts.append(int(mat[i][j:k]))
-                    break
-                elif i < n - 1 and j < m - 1 and mat[i + 1][j + 1] != '.':
+                    print(f'{i}: {j} -> {k} [{mat[i][j:k]}]')
+                elif i < n - 1 and k < m - 1 and mat[i + 1][k] != '.':
                     parts.append(int(mat[i][j:k]))
-                    break
-                for sub_i in range(j, k):
-                    if i > 0 and mat[i - 1][sub_i] != '.':
+                    print(f'{i}: {j} -> {k} [{mat[i][j:k]}]')
+                elif k > 0 and mat[i][k-1] != '.':
+                    parts.append(int(mat[i][j:k]))
+                    print(f'{i}: {j} -> {k} [{mat[i][j:k]}]')
+                elif k < m - 1 and mat[i][k] != '.':
+                    parts.append(int(mat[i][j:k]))
+                    print(f'{i}: {j} -> {k} [{mat[i][j:k]}]')
+                else:
+                    if i > 0 and not all(c == '.' for c in mat[i - 1][j:k]):
                         parts.append(int(mat[i][j:k]))
-                        break
-                    if i < n - 1 and mat[i + 1][sub_i] != '.':
+                        print(f'{i}: {j} -> {k} [{mat[i][j:k]}]')
+                    elif i < n - 1 and not all(c == '.' for c in mat[i + 1][j:k]):
                         parts.append(int(mat[i][j:k]))
-                        break
+                        print(f'{i}: {j} -> {k} [{mat[i][j:k]}]')
                 j = k
             else:
                 j += 1
@@ -39,8 +44,5 @@ def gear_ratios(mat: list[str]) -> list[int]:
 
 
 if __name__ == '__main__':
-    total = 0
     lines = [line for line in read_input_lines()]
-    for t in gear_ratios(lines):
-        total += t
-    print(f'total gear: {total}')
+    print(f'total gear: {sum(gear_ratios(lines))}')
