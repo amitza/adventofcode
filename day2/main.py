@@ -40,5 +40,5 @@ if __name__ == '__main__':
     for line in read_input_lines():
         total += cube_conundrum_part_1(s=line, red=12, green=13, blue=14)
         total_pow += cube_conundrum_part_2(s=line)
-    print(total)
-    print(total_pow)
+    print(f'total games id: {total}')
+    print(f'total power of games: {total_pow}')
