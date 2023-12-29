@@ -25,7 +25,7 @@ def trebuchet(s: str) -> int:
 
 if __name__ == '__main__':
     total: int = 0
-    with open('input', 'r') as f:
+    with open('input.txt', 'r') as f:
         lines = f.readlines()
         for line in lines:
             line = line.strip()
