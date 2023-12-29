@@ -2,6 +2,10 @@
 
 This repository contains my Python solutions for Advent of Code 2023 challenges.
 
+## Requirements
+
+* Python 3.11
+
 ## Usage
 
 Run each day's solution:
