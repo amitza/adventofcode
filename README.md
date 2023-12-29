@@ -6,16 +6,6 @@ This repository contains my Python solutions for Advent of Code 2023 challenges.
 
 * Python 3.11
 
-## Usage
-
-Run each day's solution:
-
-```bash
-python day1.py
-python day2.py
-# ...
-```
-
 ## Project Structure
 
 ```
@@ -27,6 +17,16 @@ python day2.py
 │ ├── main.py # Solution for Day 2
 │ └── input.txt # Input file for Day 2
 ├── ... # Solutions for subsequent days
+```
+
+## Usage
+
+Run each day's solution:
+
+```bash
+python day1/main.py
+python day2/main.py
+# ...
 ```
 
 ## License
