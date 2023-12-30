@@ -1,6 +1,6 @@
-# Advent of Code 2023 - Python Solutions
+# Advent of Code - Python Solutions
 
-This repository contains my Python solutions for Advent of Code 2023 challenges.
+This repository contains my Python solutions for Advent of Code challenges.
 
 ## Requirements
 
