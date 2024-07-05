@@ -1,17 +1,18 @@
 from utils.utils import read_input_lines
 
-def add_part_in_gear_map(gears: dict[int, dict[int, list[int]]], i: int, j: int, part_i: int) -> None:
+
+def add_part_in_gear_map(gears: dict[int, dict[int, list[int]]], i: int, j: int, part_i: int, part: int) -> None:
     if i not in gears.keys():
-        gears[i] = {j: [part_i]}
+        gears[i] = {j: [part]}
     else:
         if j not in gears[i].keys():
-            gears[i][j] = [part_i]
+            gears[i][j] = [part]
         else:
-            gears[i][j].append(part_i)
+            gears[i][j].append(part)
 
 
 def gear_ratios(mat: list[str]) -> (list[int], int):
-    valid_signs = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
+    valid_signs = set('0123456789.')
     parts = []
     n = len(mat)
     gears: dict[int, dict[int, list[int]]] = {}
@@ -27,7 +28,7 @@ def gear_ratios(mat: list[str]) -> (list[int], int):
                 if i > 0 and j > 0 and mat[i - 1][j - 1] not in valid_signs:
                     parts.append(int(mat[i][j:k]))
                     if mat[i - 1][j - 1] == '*':
-                        add_part_in_gear_map(gears=gears, i=i - 1, j=j - 1, part_i=len(parts) - 1)
+                        add_part_in_gear_map(gears=gears, i=i - 1, j=j - 1, part_i=len(parts) - 1, part=)
                 elif i > 0 and k < m - 1 and mat[i - 1][k] not in valid_signs:
                     parts.append(int(mat[i][j:k]))
                     if mat[i - 1][k] == '*':
@@ -71,7 +72,8 @@ def gear_ratios(mat: list[str]) -> (list[int], int):
     for gear_x, gear_dict in gears.items():
         for gear_y, parts_i in gear_dict.items():
             if len(parts_i) == 2:
-                print(f'found gear from parts: {parts[parts_i[0]]} * {parts[parts_i[1]]} = {(parts[parts_i[0]] * parts[parts_i[1]])}')
+                print(
+                    f'found gear from parts: {parts[parts_i[0]]} * {parts[parts_i[1]]} = {(parts[parts_i[0]] * parts[parts_i[1]])}')
                 gear_ratio_total += (parts[parts_i[0]] * parts[parts_i[1]])
 
     return parts, gear_ratio_total
