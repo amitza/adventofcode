@@ -1,0 +1,18 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "go",
+			"label": "build",
+			"command": "build",
+			"args": [
+				"${cwd}\\day4"
+			],
+			"problemMatcher": [
+				"$go"
+			],
+			"group": "build",
+			"detail": "cd c:\\Users\\aamit\\PycharmProjects\\adventofcode; go build ./..."
+		}
+	]
+}

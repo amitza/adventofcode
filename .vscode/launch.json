@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Go Program",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${fileDirname}",
+            "env": {},
+            "args": [],
+            "showLog": true,
+            "trace": "verbose",
+            "output": "console",
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "build",
+            "postDebugTask": "clean"
+        }
+    ]
+}
